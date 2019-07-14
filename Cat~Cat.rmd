@@ -27,12 +27,14 @@ davisdata <- na.omit(ucdavis1)
 
 ```{r}
 barchartGC(~class + Sex,data=ucdavis1)
+barchartGC(~class + Sex,data=ucdavis1, type="percent")
+
 ```
 ```{r}
-basicCC <- ggplot(davisdata,aes(x=class,fill=Sex))
-basicCC + geom_bar()
-basicCC + geom_bar(position=position_dodge())
-
+#Now for percentage plot
+dd2 <- davisdata %>% group_by(class,Sex) %>% summarize(count=n()) %>% mutate(prcnt=count/sum(count))
+basicCC <- ggplot(dd2,aes(x=class,y=prcnt*100,fill=Sex)) 
+basicCC + geom_bar(stat="identity", position = "dodge")
 ```
   
 ###Numerical Summaries  

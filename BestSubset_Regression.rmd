@@ -17,7 +17,7 @@ Bears <- select(bears,contains("e"),-Name)
 #Clean missing values out of dataset (needed to run Anova at end of demo)
 Bears<- na.omit(Bears)
 ```
-## make a multiple regression model predicting Length, start with full model using p-value approach   
+## make a multiple regression model predicting Length, start with full model using p-value approach, This is known as the "Backward Elimination"  method discussed on page 354 (Section 9.2.2) of Open Intro to Stats 4th Edition.
 
 ```{r}
 fullup <- lm(Length~ .,data=Bears)

@@ -23,25 +23,25 @@ OurData <- chickwts
 ```
 
 
-###Plot boxplots
+### Plot boxplots
 
 ```{r}
 plot(momheight~Sex,data=davisdata)
 ```
 
-##Now with ggplot - first select the basic data
+## Now with ggplot - first select the basic data
 
 ```{r}
 basicCN <- ggplot(ucdavis1,aes(x=Sex,y=dadheight))
 ```
-##Now add in boxplot
+## Now add in boxplot
 
 ```{r}
 basicCN + geom_boxplot()
 ```
   
   
-###get fancy  
+### get fancy  
 
 ```{r}
 basicCN + geom_boxplot(notch=TRUE,outlier.color = "red") + stat_boxplot(geom ='errorbar') + labs(title="Fancy notch boxplot \n with 2 lines")
@@ -62,13 +62,13 @@ t.test(momheight~Sex,data=ucdavis1)
   
   
 
-###Plot boxplots
+### Plot boxplots
 
 ```{r}
 plot(alcohol~Seat,data=davisdata)
 ```
    
-####Using ggplot
+#### Using ggplot
 
 ```{r}
 basicCN <- ggplot(davisdata,aes(x=Seat,y=alcohol))
@@ -88,13 +88,13 @@ model1 <- aov(alcohol~Seat,data=davisdata)
 summary.aov(model1)
 ```
 
-##When significant follow up with TukeyHSD  
+## When significant follow up with TukeyHSD  
 
 ```{r}
 plot(TukeyHSD(model1))
 ```
 
-##Another example  
+## Another example  
 
 ```{r}
 plot(weight~feed,data=OurData)
